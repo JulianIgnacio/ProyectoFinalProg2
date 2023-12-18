@@ -1,0 +1,16 @@
+{
+  "juegos": [
+    {
+      "nombre": "Left 4 Dead 2",
+      "imagen": "https://cdn.cloudflare.steamstatic.com/steam/apps/550/header.jpg",
+      "descripcion": "Juego de supervivencia cooperativo",
+      "id": 1
+    },
+    {
+      "nombre": "Hitman Absolution",
+      "imagen": "https://cdn.cloudflare.steamstatic.com/steam/apps/203140/header.jpg",
+      "descripcion": "Asesinatos Silenciosos",
+      "id": 2
+    }
+  ]
+}
