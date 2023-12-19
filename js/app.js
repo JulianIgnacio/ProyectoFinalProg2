@@ -54,7 +54,7 @@ function mostrarCards() {
             document.getElementById('exampleModal').reset()
         })
     }
-function cargarDatos(id) {
+    function cargarDatos(id) {
     const juego = juegos.find((juego) => juego.id === id);
 
     document.getElementById('nombreJuego').value = juego.nombre;
