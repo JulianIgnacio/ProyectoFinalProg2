@@ -30,7 +30,7 @@ function mostrarCards() {
         <div class="card-body">
         <h5 class="card-title">${juegos.nombre}</h5>
                     <p class="card-text">${juegos.descripcion}</p>
-                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="cargarDatos('${juegos.id}')">Editar</button>
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditar" onclick="cargarDatos('${juegos.id}')">Editar</button>
                     <button type="submit" class="btn btn-danger" onclick="eliminarJuegos('${juegos.id}')">Borrar</button>
                 </div>
             </div>
@@ -55,23 +55,23 @@ function mostrarCards() {
         })
     }
     function cargarDatos(id) {
-    const juego = juegos.find((juego) => juego.id === id);
+    const juego = juegos.find((juego) => juego.id === id); 
 
-    document.getElementById('nombreJuego').value = juego.nombre;
-    document.getElementById('descripcionJuego').value = juego.descripcion;
-    document.getElementById('urlImagen').value = juego.imagen;
+    juego.nombre =document.getElementById('nombre').value
+    juego.descripcion =document.getElementById('descripcion').value
+    juego.imagen =document.getElementById('Imagen').value
 
-    document.getElementById('exampleModal').addEventListener('submit', async (e) => {
+    document.getElementById('modalEditar').addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const nombre = document.getElementById('nombreJuego').value;
-        const descripcion = document.getElementById('descripcionJuego').value;
-        const imagen = document.getElementById('urlImagen').value;
+        const nombre = document.getElementById('nombre').value;
+        const descripcion = document.getElementById('descripcion').value;
+        const imagen = document.getElementById('Imagen').value;
 
         const juegoEditado = { nombre, descripcion, imagen };
 
         await editarJuego(id, juegoEditado);
-        document.getElementById('exampleModal').reset();
+        document.getElementById('modalEditar').reset();
     });
 }
 

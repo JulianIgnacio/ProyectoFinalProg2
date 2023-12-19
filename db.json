@@ -1,9 +1,9 @@
 {
   "juegos": [
     {
-      "nombre": "Left 4 Dead 2",
+      "nombre": "Left 4 dead 2",
+      "descripcion": "Juego de supervivencia Conjunta",
       "imagen": "https://cdn.cloudflare.steamstatic.com/steam/apps/550/header.jpg",
-      "descripcion": "Juego de supervivencia cooperativo",
       "id": 1
     },
     {

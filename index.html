@@ -90,7 +90,35 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary">Agregar Juego</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <form class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalEditarLabel">Datos Juego</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="nombre" placeholder="titulo de juego">
+          <label for="nombre">Titulo de Juego</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="descripcion" placeholder="descripcion juego">
+          <label for="descripcion">Descripcion Juego</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="Imagen" placeholder="url de imagen">
+          <label for="Imagen">url imagen</label>
+        </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-warning">Editar Juego</button>
               </div>
             </div>
           </div>
