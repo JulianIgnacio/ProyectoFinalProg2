@@ -55,12 +55,6 @@ function mostrarCards() {
         })
     }
     function cargarDatos(id) {
-    const juego = juegos.find((juego) => juego.id === id); 
-
-    juego.nombre =document.getElementById('nombre').value
-    juego.descripcion =document.getElementById('descripcion').value
-    juego.imagen =document.getElementById('Imagen').value
-
     document.getElementById('modalEditar').addEventListener('submit', async (e) => {
         e.preventDefault();
 
