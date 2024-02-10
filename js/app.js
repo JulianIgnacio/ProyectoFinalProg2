@@ -31,7 +31,7 @@ function mostrarCards() {
         <h5 class="card-title">${juegos.nombre}</h5>
                     <p class="card-text">${juegos.descripcion}</p>
                     <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditar" onclick="cargarDatos('${juegos.id}')">Editar</button>
-                    <button type="submit" class="btn btn-danger" onclick="eliminarJuegos('${juegos.id}')">Borrar</button>
+                    <button type="submit" class="btn btn-danger" onclick="borrarJuego('${juegos.id}')">Borrar</button>
                 </div>
             </div>
             `
@@ -39,7 +39,6 @@ function mostrarCards() {
             contenedorJuegos.appendChild(col)
         });
     }
-    
     function crearJuego () {
         document.getElementById('exampleModal').addEventListener('submit',async (e) => {
             e.preventDefault()
@@ -52,6 +51,12 @@ function mostrarCards() {
             
             await agregarJuego(nuevoJuego)
             document.getElementById('exampleModal').reset()
+        })
+    }
+    function validarDatos(juegoaEditar){
+        getJuegos().then((res) => {
+            juegos = res.JSON
+            
         })
     }
     function cargarDatos(id) {
@@ -68,7 +73,14 @@ function mostrarCards() {
         document.getElementById('modalEditar').reset();
     });
 }
+function borrarJuego (id){
+    if(confirm('desea borrar el juego?')== true){
+        eliminarJuegos(id)
+    }else{
+        alert('continue con normalidad')
+    }
 
+}
     const agregarJuego = async (juego) => {
         try{
             const respuesta = await fetch(`${BASE_URL}/juegos`, {
@@ -97,6 +109,7 @@ function mostrarCards() {
             console.log(error);
         }
     }
+    
     const eliminarJuegos = async (id) => {
         try {
             const respuesta = await fetch(`${BASE_URL}/juegos/${id}`, {
