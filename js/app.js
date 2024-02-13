@@ -53,12 +53,31 @@ function mostrarCards() {
             document.getElementById('exampleModal').reset()
         })
     }
-    function validarDatos(juegoaEditar){
-        getJuegos().then((res) => {
-            juegos = res.JSON
+    async function validarDatos(juegoaEditar) {
+        try {
+            const juegosActuales = await getJuegos();
             
-        })
+            const tituloRepetido = juegosActuales.some(juego => juego.nombre === juegoaEditar.nombre && juego.id !== juegoaEditar.id);
+    
+            const imagenRepetida = juegosActuales.some(juego => juego.imagen === juegoaEditar.imagen && juego.id !== juegoaEditar.id);
+    
+            if (tituloRepetido) {
+                alert('Error: Ya existe un juego con el mismo título.');
+                return false;
+            }
+    
+            if (imagenRepetida) {
+                alert('Error: Ya existe un juego con la misma imagen.');
+                return false;
+            }
+    
+            return true;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
     }
+
     function cargarDatos(id) {
     document.getElementById('modalEditar').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -69,8 +88,12 @@ function mostrarCards() {
 
         const juegoEditado = { nombre, descripcion, imagen };
 
-        await editarJuego(id, juegoEditado);
-        document.getElementById('modalEditar').reset();
+        const esValido = await validarDatos(juegoEditado);
+
+        if(esValido){
+            await editarJuego(id, juegoEditado);
+            document.getElementById('modalEditar').reset();
+        }
     });
 }
 function borrarJuego (id){
