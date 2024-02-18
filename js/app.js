@@ -99,10 +99,7 @@ function mostrarCards() {
 function borrarJuego (id){
     if(confirm('desea borrar el juego?')== true){
         eliminarJuegos(id)
-    }else{
-        alert('continue con normalidad')
     }
-
 }
     const agregarJuego = async (juego) => {
         try{
